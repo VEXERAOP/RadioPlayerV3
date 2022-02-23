@@ -26,7 +26,7 @@ from os import path
 from pyrogram import emoji
 try:
     from yt_dlp import YoutubeDL
-    from pytgcalls.exceptions import GroupCallNotFoundError
+    from pytgcalls.exceptions import GroupCallNotFound
 except ModuleNotFoundError:
     file=os.path.abspath("requirements.txt")
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', file, '--upgrade'])
@@ -72,7 +72,7 @@ EDIT_TITLE=Config.EDIT_TITLE
 RADIO_TITLE=Config.RADIO_TITLE
 
 ydl_opts = {
-    "format": "bestaudio[ext=m4a]",
+    "format": "bestaudio/best,
     "geo-bypass": True,
     "nocheckcertificate": True,
     "outtmpl": "downloads/%(id)s.%(ext)s",
@@ -267,7 +267,7 @@ class MusicPlayer(object):
             await sleep(e.x)
             if not group_call.is_connected:
                 await group_call.start(CHAT_ID)
-        except GroupCallNotFoundError:
+        except GroupCallNotFound:
             try:
                 await USER.send(CreateGroupCall(
                     peer=(await USER.resolve_peer(CHAT_ID)),
