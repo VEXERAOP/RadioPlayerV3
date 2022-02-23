@@ -72,7 +72,7 @@ EDIT_TITLE=Config.EDIT_TITLE
 RADIO_TITLE=Config.RADIO_TITLE
 
 ydl_opts = {
-    "format": "bestaudio/best,
+    "format": "bestaudio/best",
     "geo-bypass": True,
     "nocheckcertificate": True,
     "outtmpl": "downloads/%(id)s.%(ext)s",
