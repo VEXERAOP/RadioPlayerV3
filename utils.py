@@ -36,7 +36,7 @@ from asyncio import sleep
 from pyrogram import Client
 from signal import SIGINT
 from random import randint
-import pytgcalls
+from pytgcalls import GroupCallFactory
 from pyrogram.errors import FloodWait
 from pyrogram.utils import MAX_CHANNEL_ID
 from pyrogram.raw.types import InputGroupCall
